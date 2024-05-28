@@ -3,8 +3,8 @@ var { createStudent, useSkill, learnNewSkill, createSubjectList } = require('./s
 
 describe('Student', function() {
   it.skip('should create a student with a dynamic name and favorite subject', function() {
-    var marshall = createStudent.skip('Marshall', 'science');
-    var charles = createStudent.skip('Charles', 'geography');
+    var marshall = createStudent('Marshall', 'science');
+    var charles = createStudent('Charles', 'geography');
 
     assert.equal(marshall.name, 'Marshall');
     assert.equal(marshall.favoriteSubject, 'science');
@@ -14,21 +14,21 @@ describe('Student', function() {
   });
   
   it.skip('should know some math skills', function() {
-    var marshall = createStudent.skip('Marshall', 'science', ["addition"]);
-    var charles = createStudent.skip('Charles', 'geography', ["addition", "subtraction", "long division"]);
+    var marshall = createStudent('Marshall', 'science', ["addition"]);
+    var charles = createStudent('Charles', 'geography', ["addition", "subtraction", "long division"]);
     
     assert.deepEqual(marshall.skills, ["addition"]);
     assert.deepEqual(charles.skills, ["addition", "subtraction", "long division"]);
   });
   
   it.skip('should be possible to not know any math skills to start', function() {
-    var marshall = createStudent.skip('Marshall', 'science');
+    var marshall = createStudent('Marshall', 'science');
 
     assert.deepEqual(marshall.skills, []);
   });
 
   it.skip('should be able to learn a new skill', function() {
-    var jessica = createStudent.skip('Jessica', 'spanish');
+    var jessica = createStudent('Jessica', 'spanish');
 
     var jessicaCanAdd = learnNewSkill(jessica, "addition");
 
@@ -37,7 +37,7 @@ describe('Student', function() {
   });
 
   it.skip('should be able to learn many new skills', function() {
-    var barb = createStudent.skip('barb', 'music', ["addition"]);
+    var barb = createStudent('barb', 'music', ["addition"]);
 
     var barbCanAddAndSubtract = learnNewSkill(barb, "subtraction");
     var barbCanAddSubtractAndDivide = learnNewSkill(barbCanAddAndSubtract, "long division");
@@ -48,7 +48,7 @@ describe('Student', function() {
   });
 
   it.skip('should be able to use skills they have', function() {
-    var jessica = createStudent.skip('Jessica', 'spanish', ["addition", "long division", "multiplication"]);
+    var jessica = createStudent('Jessica', 'spanish', ["addition", "long division", "multiplication"]);
 
     var doMath1 = useSkill(jessica, "multiplication");
     var doMath2 = useSkill(jessica, "addition");
@@ -58,7 +58,7 @@ describe('Student', function() {
   });
 
   it.skip('should not be able to use skills they do not have', function() {
-    var jessica = createStudent.skip('Jessica', 'spanish', ["addition", "long division", "multiplication"]);
+    var jessica = createStudent('Jessica', 'spanish', ["addition", "long division", "multiplication"]);
 
     var doMath = useSkill(jessica, "subtraction");
 
@@ -66,10 +66,10 @@ describe('Student', function() {
   });
 
   it.skip('should be able make list of favorite subjects of many students', function() {
-    var marshall = createStudent.skip('Marshall', 'science');
-    var jessica = createStudent.skip('Jessica', 'spanish', ["addition", "long division", "multiplication"]);
-    var charles = createStudent.skip('Charles', 'geography');
-    var barb = createStudent.skip('Barb', 'music', ["addition"]);
+    var marshall = createStudent('Marshall', 'science');
+    var jessica = createStudent('Jessica', 'spanish', ["addition", "long division", "multiplication"]);
+    var charles = createStudent('Charles', 'geography');
+    var barb = createStudent('Barb', 'music', ["addition"]);
 
     var allstudents = [marshall, jessica, charles, barb];
 
