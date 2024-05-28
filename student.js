@@ -2,7 +2,7 @@
 
 module.exports = { 
   // createStudent, 
-  // useSkill, 
   // learnNewSkill, 
+  // useSkill, 
   // createSubjectList
  };
