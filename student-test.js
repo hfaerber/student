@@ -73,7 +73,7 @@ describe('Student', function() {
 
     var allstudents = [marshall, jessica, charles, barb];
 
-    var list = createSubjectList.skip(allstudents);
+    var list = createSubjectList(allstudents);
 
     assert.deepEqual(list, ['science', 'spanish', 'geography', 'music']);
   });
